@@ -1,2 +1,2 @@
-import"./assets/modulepreload-polyfill-3cfb730f.js";/* empty css                      */console.log("Hello");
+import"./assets/modulepreload-polyfill-3cfb730f.js";/* empty css                      */function r(){return`#${Math.floor(Math.random()*16777215).toString(16).padStart(6,0)}`}const t=document.querySelector("[data-start]"),o=document.querySelector("[data-stop]"),a=document.body;let e;t.addEventListener("click",n);o.addEventListener("click",d);function n(){t.disabled=!0,o.disabled=!1,e=setInterval(()=>{a.style.backgroundColor=r()},1e3)}function d(){t.disabled=!1,o.disabled=!0,clearInterval(e)}
 //# sourceMappingURL=commonHelpers.js.map
