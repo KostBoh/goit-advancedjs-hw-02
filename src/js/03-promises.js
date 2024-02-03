@@ -27,14 +27,14 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(({ position, delay }) => {
           iziToast.show({
             title: 'Success',
-            message: `Promise ${position} completed after ${delay}ms`,
+            message: `✅ Fulfilled promise ${position} in ${delay}ms`,
             color: 'green',
           });
         })
         .catch(reason => {
           iziToast.show({
             title: 'Error',
-            message: `Promise rejected. Reason: ${reason}`,
+            message: `❌ Rejected promise: ${reason}`,
             color: 'red',
           });
         });
