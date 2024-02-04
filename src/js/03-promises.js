@@ -1,12 +1,11 @@
 function createPromise(position, delay) {
   return new Promise((resolve, reject) => {
-    const timeoutId = setTimeout(() => {
+    setTimeout(() => {
       const shouldResolve = Math.random() > 0.3;
       if (shouldResolve) {
         resolve({ position, delay });
       } else {
-        const reason = 'Error message';
-        reject(reason);
+        reject({ position, delay });
       }
     }, delay);
   });
@@ -31,13 +30,14 @@ document.addEventListener('DOMContentLoaded', () => {
             color: 'green',
           });
         })
-        .catch(reason => {
+        .catch(({ position, delay }) => {
           iziToast.show({
             title: 'Error',
-            message: `❌ Rejected promise: ${reason}`,
+            message: `❌ Rejected promise ${position} in ${delay}ms`,
             color: 'red',
           });
         });
     }
+    form.reset();
   });
 });
