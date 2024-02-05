@@ -63,10 +63,17 @@ function handleStartButtonClick(datetimePicker, timerDisplay) {
 }
 
 function updateTimerUI(timerDisplay, days, hours, minutes, seconds) {
-  ['days', 'hours', 'minutes', 'seconds'].forEach(unit => {
-    timerDisplay.querySelector(`[data-${unit}]`).textContent = addLeadingZero(
-      eval(unit)
-    );
+  const units = ['days', 'hours', 'minutes', 'seconds'];
+
+  units.forEach(unit => {
+    const unitValue = {
+      days: days,
+      hours: hours,
+      minutes: minutes,
+      seconds: seconds,
+    }[unit];
+    timerDisplay.querySelector(`[data-${unit}]`).textContent =
+      addLeadingZero(unitValue);
   });
 }
 
